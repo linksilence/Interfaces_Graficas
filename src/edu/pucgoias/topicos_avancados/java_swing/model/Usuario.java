@@ -4,10 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.io.Serializable;
 
-/**
- * Classe que representa um usuário com informações básicas e data de registro.
- * Implementa Serializable para possibilitar persistência de dados.
- */
+
 public class Usuario implements Serializable {
     
     private static final long serialVersionUID = 1L;
@@ -60,9 +57,7 @@ public class Usuario implements Serializable {
         this.tipoUsuario = tipoUsuario;
     }
     
-    /**
-     * Formata o usuário para salvar em arquivo txt.
-     */
+
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");

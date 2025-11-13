@@ -5,9 +5,7 @@ import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Modelo customizado para tabela de usuários.
- */
+
 public class UsuarioTableModel extends DefaultTableModel {
     
     private static final String[] COLUNAS = {"Nome", "Gênero", "Tipo", "Data de Registro"};
@@ -20,18 +18,14 @@ public class UsuarioTableModel extends DefaultTableModel {
         this.usuariosOriginais = new ArrayList<>();
     }
     
-    /**
-     * Adiciona um novo usuário ao modelo.
-     */
+
     public void adicionarUsuario(Usuario usuario) {
         usuarios.add(usuario);
         usuariosOriginais.add(usuario);
         adicionarLinha(usuario);
     }
     
-    /**
-     * Remove usuário pela linha da tabela.
-     */
+
     public void removerUsuarioPorLinha(int linha) {
         if (linha >= 0 && linha < usuarios.size()) {
             Usuario usuarioRemovido = usuarios.get(linha);
@@ -41,9 +35,7 @@ public class UsuarioTableModel extends DefaultTableModel {
         }
     }
     
-    /**
-     * Filtra usuários pelo nome.
-     */
+
     public void filtrarPorNome(String nomeFiltro) {
         // Limpa a tabela
         while (getRowCount() > 0) {
@@ -62,9 +54,7 @@ public class UsuarioTableModel extends DefaultTableModel {
         }
     }
     
-    /**
-     * Limpa filtro e exibe todos os usuários.
-     */
+
     public void limparFiltro() {
         while (getRowCount() > 0) {
             removeRow(0);
@@ -77,16 +67,12 @@ public class UsuarioTableModel extends DefaultTableModel {
         }
     }
     
-    /**
-     * Retorna todos os usuários (para salvar em arquivo).
-     */
+
     public List<Usuario> obterTodosUsuarios() {
         return new ArrayList<>(usuariosOriginais);
     }
     
-    /**
-     * Adiciona linha à tabela a partir de um usuário.
-     */
+
     private void adicionarLinha(Usuario usuario) {
         addRow(new Object[]{
             usuario.getNome(),
@@ -96,9 +82,7 @@ public class UsuarioTableModel extends DefaultTableModel {
         });
     }
     
-    /**
-     * Define se as células podem ser editadas.
-     */
+
     @Override
     public boolean isCellEditable(int row, int column) {
         return false; // Tabela somente leitura

@@ -6,14 +6,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Gerenciador de persistência de dados em arquivo.
- */
+
 public class FileManager {
-    
-    /**
-     * Salva lista de usuários em arquivo.
-     */
+
+
     public static void salvarUsuarios(List<Usuario> usuarios, String caminhoArquivo) 
             throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(caminhoArquivo))) {
@@ -26,9 +22,7 @@ public class FileManager {
         }
     }
     
-    /**
-     * Carrega usuários de um arquivo.
-     */
+
     public static List<Usuario> carregarUsuarios(String caminhoArquivo) 
             throws IOException {
         List<Usuario> usuarios = new ArrayList<>();
@@ -67,7 +61,7 @@ public class FileManager {
             String nome = partes[0];
             String genero = partes[1];
             String tipo = partes[2];
-            LocalDateTime dataRegistro = FormatadorData.parseCompleto(partes[3]);
+            LocalDateTime dataRegistro = edu.pucgoias.topicos_avancados.java_swing.util.FormatadorData.parseCompleto(partes[3]);
             
             return new Usuario(nome, genero, tipo, dataRegistro);
         } catch (Exception e) {
